@@ -3,20 +3,27 @@ package com.example.luckyticket_kotlin
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-const val MAX_NUMBER_OF_DIGITS = 6
 class MainActivity : AppCompatActivity() {
+    companion object {
+        const val MAX_NUMBER_OF_DIGITS = 6
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val btnCheckNumber = findViewById<Button>(R.id.btnCheckNumber)
+        btnCheckNumber.setOnClickListener{
+            checkTicket()
+        }
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    fun checkTicket(view: View){
+    fun checkTicket(){
         val ticket = findViewById<EditText>(R.id.etTicketNumber).text
         val bulb = findViewById<ImageView>(R.id.imgBulb)
 
